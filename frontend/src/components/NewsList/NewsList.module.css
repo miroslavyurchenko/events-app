@@ -1,0 +1,102 @@
+.newsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 120px 20px 60px 20px; /* Учитываем высоту меню */
+}
+
+.title {
+  color: #1e293b;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.filterForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filterForm input {
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.filterForm input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.filterForm button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.filterForm button:hover {
+  background-color: #1e40af;
+}
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.newsCard {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.newsCard:hover {
+  transform: translateY(-5px);
+}
+
+.newsCard h3 {
+  color: #2563eb;
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+}
+
+.newsCard p {
+  color: #475569;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  flex: 1; /* Чтобы дата всегда была внизу */
+}
+
+.newsCard span {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+  display: block;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  color: #64748b;
+  font-size: 18px;
+  margin-top: 30px;
+}

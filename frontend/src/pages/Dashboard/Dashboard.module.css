@@ -1,0 +1,272 @@
+.dashboardPage {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  color: #111;
+}
+
+/* заголовок */
+.title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* блоки */
+.section {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* подзаголовки */
+.sectionTitle {
+  margin-bottom: 20px;
+}
+
+/* ========================= */
+/* 📋 СОБЫТИЯ */
+/* ========================= */
+
+.eventCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  padding: 18px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: 0.2s;
+}
+
+.eventCard:hover {
+  transform: translateY(-3px);
+  background: #f3f4f6;
+}
+
+.eventInfo h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.eventInfo p {
+  margin: 4px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* кнопка удалить */
+.deleteBtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+}
+
+/* ========================= */
+/* ➕ ФОРМА */
+/* ========================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input,
+.select,
+.textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.2s;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.textarea {
+  min-height: 80px;
+}
+
+/* кнопка создать */
+.submitBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  background: #1e40af;
+}
+
+/* пустое состояние */
+.empty {
+  color: #666;
+}
+
+/* ========================= */
+/* 🔘 ДОПОЛНИТЕЛЬНЫЕ КНОПКИ */
+/* ========================= */
+
+/* Кнопка Редагувати в списке событий */
+.editBtn {
+  background: #f3f4f6; /* Светло-серый фон */
+  color: #1f2937;      /* Темный текст */
+  border: 1px solid #d1d5db;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;  /* Отступ от кнопки удаления */
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.editBtn:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+/* Кнопка Скасувати в форме */
+.cancelBtn {
+  background: transparent;
+  color: #6b7280;      /* Приглушенный серый */
+  border: 1px solid #d1d5db;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cancelBtn:hover {
+  background: #f9fafb;
+  color: #111;
+  border-color: #9ca3af;
+}
+
+/* Контейнер для кнопок в форме, чтобы они были в ряд */
+.formButtons {
+  display: grid;
+  grid-template-columns: 1fr; /* По умолчанию одна под другой */
+  gap: 10px;
+}
+
+/* Если есть кнопка отмены, ставим их в ряд 2 к 1 или пополам */
+.formButtons:has(.cancelBtn) {
+  grid-template-columns: 2fr 1fr;
+}
+
+/* Кнопка участников в списке */
+.viewBtn {
+  background: #10b981; /* Зеленый цвет */
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.viewBtn:hover {
+  background: #059669;
+}
+
+/* Модальное окно */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 16px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modalHeader {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.closeModalBtn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+}
+
+.modalBody {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Таблица участников */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.userTable th {
+  background: #f3f4f6;
+  padding: 12px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.userTable td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.userTable tr:last-child td {
+  border-bottom: none;
+}

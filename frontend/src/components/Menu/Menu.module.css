@@ -1,0 +1,275 @@
+/* ГЛАВНЫЙ КОНТЕЙНЕР МЕНЮ */
+.menu {
+  height: 75px;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menuInner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Распределяет Лого, Нав и Кнопки */
+  padding: 0 20px;
+}
+
+/* ЛОГОТИП */
+.logo {
+  flex: 1; /* Занимает 1 часть пространства слева */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo a {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2563eb;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ОБЕРТКА НАВИГАЦИИ (ССЫЛКИ СТРОГО ПО ЦЕНТРУ) */
+.navWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 2; /* Занимает центральную часть */
+}
+
+/* СПИСОК ССЫЛОК */
+.menuList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 600;
+  gap: 40px;
+}
+
+.menuList a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  padding: 8px 4px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.menuList a:hover {
+  color: #2563eb;
+}
+
+/* ЛИНИЯ ПОД ССЫЛКОЙ */
+.menuList a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background-color: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.menuList a:hover::after,
+.menuList a.active::after {
+  width: 100%;
+}
+
+.menuList a.active {
+  color: #2563eb;
+}
+
+/* БЛОК КНОПОК АВТОРИЗАЦИИ */
+.authActions {
+  flex: 1; /* Занимает 1 часть пространства справа (как и лого) */
+  display: flex;
+  justify-content: flex-end; /* Прижимает кнопку к правому краю */
+  align-items: center;
+}
+
+.loginBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.loginBtn:hover {
+  background: #1e40af;
+}
+
+/* ЮЗЕР БЛОК */
+.userBlock {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.userEmail {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.logoutBtn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* БУРГЕР КНОПКА */
+.burgerBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  z-index: 1001;
+}
+
+.burgerBtn span, 
+.burgerBtn span::before, 
+.burgerBtn span::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #2563eb;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.burgerBtn span::before { top: -10px; }
+.burgerBtn span::after { bottom: -10px; }
+
+.burgerClose { background: transparent !important; }
+.burgerClose::before { transform: rotate(45deg); top: 0 !important; }
+.burgerClose::after { transform: rotate(-45deg); bottom: 0 !important; }
+
+/* МОДАЛЬНЫЕ ОКНА */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal input, .modal select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.closeBtn {
+  margin-top: 15px;
+  background: #f3f4f6;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.errorModal { border-top: 5px solid #ef4444; }
+.errorModal h2 { color: #ef4444; }
+
+.switchMode { margin-top: 15px; font-size: 14px; color: #6b7280; }
+.switchMode span { color: #2563eb; cursor: pointer; font-weight: 600; margin-left: 5px; }
+
+/* АДАПТИВ (МАКС 768px) */
+@media (max-width: 768px) {
+  .menuInner {
+    justify-content: space-between;
+  }
+
+  .logo, .authActions {
+    flex: none; /* Отключаем флекс-пропорции на мобилке */
+  }
+
+  .burgerBtn {
+    display: block;
+  }
+
+  .navWrapper {
+    position: fixed;
+    top: 0; /* Меню на мобилке поверх всего */
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    transition: 0.4s ease-in-out;
+    flex: none;
+  }
+
+  .navActive {
+    left: 0;
+  }
+
+  .menuList {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .authActions {
+    margin-left: 0;
+    width: 80%;
+    justify-content: center;
+  }
+
+  .loginBtn {
+    width: 100%;
+  }
+}

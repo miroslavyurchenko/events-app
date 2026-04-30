@@ -1,0 +1,264 @@
+.home {
+  text-align: center;
+}
+
+/* HERO */
+.hero {
+  height: 350px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.heroContent h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.heroContent p {
+  margin: 10px 0 20px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* КНОПКИ */
+.ctaBtn {
+  background: white;
+  color: #2563eb;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.ctaBtn:hover {
+  background: #e5e7eb;
+  transform: scale(1.05);
+}
+
+/* КАТЕГОРИИ */
+.categories {
+  padding: 60px 20px;
+}
+
+.categories h2 {
+  color: #111;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.categoryGrid {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.categoryCard {
+  padding: 12px 24px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.categoryCard:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ПОПУЛЯРНЫЕ СОБЫТИЯ */
+.topEvents {
+  padding: 40px 20px;
+}
+
+.topEvents h2 {
+  margin-bottom: 30px;
+}
+
+.eventsGrid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.eventCard {
+  width: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.eventCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.eventImage {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.eventInfo {
+  padding: 16px;
+  color: #1e293b;
+}
+
+.eventInfo h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.eventInfo p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* FEATURES */
+.features {
+  padding: 60px 20px;
+  background: #f9fafb;
+  color: #111;
+}
+
+.features h2 {
+  margin-bottom: 40px;
+}
+
+.featuresGrid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  max-width: 280px;
+  padding: 20px;
+}
+
+.feature h3 {
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.feature p {
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* CTA */
+.cta {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+}
+
+.cta h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.ctaBtnLarge {
+  composes: ctaBtn;
+  margin-top: 30px;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+  .featuresGrid {
+    gap: 20px;
+  }
+  
+  .eventCard {
+    width: calc(50% - 24px); /* По 2 карточки в ряд */
+    min-width: 280px;
+  }
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+  .hero {
+    height: 300px;
+  }
+
+  .heroContent h1 {
+    font-size: 28px;
+    padding: 0 15px;
+  }
+
+  .categories {
+    padding: 40px 15px;
+  }
+
+  .categoryGrid {
+    gap: 10px;
+  }
+
+  .categoryCard {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .eventsGrid {
+    gap: 16px;
+  }
+
+  .eventCard {
+    width: 100%; /* По 1 карточке в ряд на мобилках */
+    max-width: 400px;
+  }
+
+  .featuresGrid {
+    flex-direction: column; /* Колонки преимуществ друг под другом */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .feature {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .cta {
+    padding: 60px 15px;
+  }
+
+  .cta h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Совсем маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 24px;
+  }
+
+  .ctaBtnLarge {
+    width: 100%; /* Кнопка на весь экран */
+    padding: 14px;
+  }
+  
+  .eventImage {
+    height: 150px;
+  }
+}

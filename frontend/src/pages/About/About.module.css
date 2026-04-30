@@ -1,0 +1,117 @@
+.aboutPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fcfcfc;
+}
+
+.aboutContainer {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 20px 60px 20px;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.headerSection h2 {
+  color: #2563eb;
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 20px;
+}
+
+.headerSection p {
+  font-size: 1.2rem;
+  color: #4b5563;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contentSection {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.contentSection h3 {
+  color: #1e40af;
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contentSection p {
+  color: #374151;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Сетка преимуществ */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.featureItem {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #2563eb;
+}
+
+.featureItem h4 {
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.featureItem p {
+  font-size: 14px;
+  margin-bottom: 0;
+  color: #64748b;
+}
+
+.contactBox {
+  background: #eff6ff;
+  color: black;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.contactList li {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 768px) {
+  .contentSection {
+    padding: 25px 20px;
+  }
+  
+  .aboutContainer {
+    padding-top: 80px;
+  }
+}

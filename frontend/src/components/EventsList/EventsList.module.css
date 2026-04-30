@@ -1,0 +1,233 @@
+.eventsContainer {
+  max-width: 1200px; /* Немного увеличил для сетки */
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.filterForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Общий стиль для input + select */
+.filterForm input,
+.filterForm select {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: white;
+  min-width: 180px;
+}
+
+.filterForm input:focus,
+.filterForm select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background-color: #fff;
+}
+
+.filterForm button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.filterForm button:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+}
+
+.filterForm button:active {
+  transform: translateY(0);
+}
+
+/* Сетка карточек */
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.eventCard {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  color: #1e293b;
+}
+
+.eventCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #dbeafe;
+}
+
+.eventCard h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  color: #0f172a;
+}
+
+.eventCard p {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+.eventCard span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  padding: 40px;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.eventCard.expired {
+  background-color: #f1f5f9; 
+  border-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: default; 
+  opacity: 0.7;
+  filter: grayscale(1); 
+}
+
+.eventCard.expired:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: #e2e8f0;
+}
+
+.eventCard.expired h3,
+.eventCard.expired p,
+.eventCard.expired span {
+  color: #94a3b8; 
+}
+
+.eventsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.filterForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.filterForm input,
+.filterForm select {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  outline: none;
+  min-width: 160px;
+}
+
+.filterForm input:focus,
+.filterForm select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.filterForm button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.eventCard {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.eventCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для прошедших событий */
+.eventCard.expired {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  cursor: default;
+  opacity: 0.7;
+  filter: grayscale(1);
+}
+
+.eventCard.expired:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.eventCard.expired h3,
+.eventCard.expired p,
+.eventCard.expired span {
+  color: #94a3b8;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  padding: 40px;
+  color: #64748b;
+}
