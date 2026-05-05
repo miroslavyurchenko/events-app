@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const pool = require("./db");
+const path = require('path');
 
 const app = express();
 app.use(cors());
@@ -304,16 +305,5 @@ app.get("/admin/events/:id/registrations", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("🚀 Server running on http://localhost:5000");
-});
-
-const path = require('path');
-
-// Раздаём статику React
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// Все остальные запросы → React
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
