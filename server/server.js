@@ -6,11 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* =========================
-   📅 EVENTS
-========================= */
-
-// все события
 app.get("/events", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM events");
@@ -21,7 +16,6 @@ app.get("/events", async (req, res) => {
   }
 });
 
-// одно событие
 app.get("/events/:id", async (req, res) => {
   try {
     const [rows] = await pool.query(
@@ -39,7 +33,6 @@ app.get("/events/:id", async (req, res) => {
   }
 });
 
-// статистика
 app.get("/events/:id/stats", async (req, res) => {
   try {
     const [rows] = await pool.query(`
@@ -56,10 +49,6 @@ app.get("/events/:id/stats", async (req, res) => {
   }
 });
 
-/* =========================
-   📰 NEWS
-========================= */
-
 app.get("/news", async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM news");
@@ -68,10 +57,6 @@ app.get("/news", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
-/* =========================
-   🧾 REGISTRATION TO EVENT
-========================= */
 
 app.post("/registrations", async (req, res) => {
   try {
@@ -92,11 +77,6 @@ app.post("/registrations", async (req, res) => {
   }
 });
 
-/* =========================
-   🔐 AUTH
-========================= */
-
-// регистрация пользователя
 app.post("/auth/register", async (req, res) => {
   try {
     const { email, password, role } = req.body;
@@ -129,7 +109,6 @@ app.post("/auth/register", async (req, res) => {
   }
 });
 
-// логин
 app.post("/auth/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -218,7 +197,6 @@ app.post("/admin/news", async (req, res) => {
   }
 });
 
-  // 📰 ВСЕ НОВОСТИ
 app.get("/admin/news", async (req, res) => {
   try {
     const [rows] = await pool.query(
@@ -233,7 +211,6 @@ app.get("/admin/news", async (req, res) => {
   }
 });
 
-// УДАЛИТЬ НОВОСТЬ
 app.delete("/admin/news/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -248,7 +225,6 @@ app.delete("/admin/news/:id", async (req, res) => {
   }
 });
 
-// ✏️ ОБНОВИТЬ СОБЫТИЕ
 app.put("/admin/events/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -314,7 +290,6 @@ app.get("/organizer/events/:userId", async (req, res) => {
   }
 });
 
-// Получить список зарегистрированных пользователей для конкретного события
 app.get("/admin/events/:id/registrations", async (req, res) => {
   try {
     const { id } = req.params;
@@ -331,4 +306,14 @@ app.get("/admin/events/:id/registrations", async (req, res) => {
 
 app.listen(5000, () => {
   console.log("🚀 Server running on http://localhost:5000");
+});
+
+const path = require('path');
+
+// Раздаём статику React
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Все остальные запросы → React
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
