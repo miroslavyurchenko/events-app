@@ -195,7 +195,7 @@ app.get("/admin/events/:id/registrations", async (req, res) => {
 
 // React static
 app.use(express.static(path.join(__dirname, "../frontend/build")));
-app.use("*", (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
 });
 
